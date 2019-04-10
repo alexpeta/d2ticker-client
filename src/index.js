@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { Button } from './components/button';
 
 class Square extends React.Component {
   render() {
@@ -49,6 +50,7 @@ class Game extends React.Component {
         <div className="game-info">
           <div>{/* status */}</div>
           <ol>{/* TODO */}</ol>
+          <Button />
         </div>
       </div>
     );
