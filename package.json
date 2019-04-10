@@ -28,11 +28,6 @@
       "prettier --single-quote --write",
       "eslint",
       "git add"
-    ],
-    "*.css": [
-      "prettier --single-quote --write",
-      "stylelint",
-      "git add"
     ]
   },
   "husky": {

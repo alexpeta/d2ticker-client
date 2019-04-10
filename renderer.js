@@ -4,7 +4,6 @@
 
 var devtools = require('choo-devtools');
 var choo = require('choo');
-//var normalize = require('normalize.css');
 
 var body = require('./ui/body');
 var home = require('./ui/home');
