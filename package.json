@@ -6,6 +6,7 @@
   "scripts": {
     "start": "electron .",
     "format": "prettier '**/*.js' 'assets/*.css' --single-quote --write",
+    "lint": "eslint .",
     "test": ""
   },
   "author": "",
