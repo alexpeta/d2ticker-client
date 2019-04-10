@@ -6,6 +6,8 @@ var html = require('choo/html');
 var devtools = require('choo-devtools');
 var choo = require('choo');
 
+var home = require('./ui/home');
+
 var app = choo();
 
 if (process.env.NODE_ENV !== 'production') {
@@ -13,21 +15,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(countStore);
-app.route('/', mainView);
+app.route('/', home);
 app.mount('body');
-
-function mainView(state, emit) {
-  return html`
-    <body>
-      <h1>count is ${state.count}</h1>
-      <button onclick=${onclick}>Increment</button>
-    </body>
-  `;
-
-  function onclick() {
-    emit('increment', 1);
-  }
-}
 
 function countStore(state, emitter) {
   state.count = 0;
