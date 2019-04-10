@@ -10,5 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^4.1.4"
+  },
+  "dependencies": {
+    "choo": "^6.13.3",
+    "choo-devtools": "^2.5.1"
   }
 }
