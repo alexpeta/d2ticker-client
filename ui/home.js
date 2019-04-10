@@ -6,9 +6,7 @@ module.exports = function(state, emit) {
   }
 
   return html`
-    <body>
-      <h1>count is ${state.count}</h1>
-      <button onclick=${onclick}>Increment</button>
-    </body>
+    <h1>count is ${state.count}</h1>
+    <button onclick=${onclick}>Increment</button>
   `;
 };

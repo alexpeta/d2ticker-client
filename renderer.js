@@ -2,10 +2,12 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-var html = require('choo/html');
 var devtools = require('choo-devtools');
 var choo = require('choo');
+//var normalize = require('normalize.css');
 
+var layout = require('./ui/layout');
+var body = require('./ui/body');
 var home = require('./ui/home');
 
 var app = choo();
@@ -15,7 +17,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(countStore);
-app.route('/', home);
+
+app.route('/', body(home));
 app.mount('body');
 
 function countStore(state, emitter) {
