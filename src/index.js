@@ -2,56 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Button } from './components/button';
+import { ListView } from './components/listview';
 
-class Square extends React.Component {
-  render() {
-    return <button className="square">{/* TODO */}</button>;
-  }
-}
+const contacts = [
+  { value: 1, display: 'Leanne Graham' },
+  { value: 2, display: 'Ervin Howell' },
+  { value: 3, display: 'Clementine Bauch' },
+  { value: 4, display: 'Patricia Lebsack' }
+];
 
-class Board extends React.Component {
-  renderSquare(i) {
-    return <Square />;
-  }
-
-  render() {
-    const status = 'Next player: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
-
-class Game extends React.Component {
+class MainApp extends React.Component {
   render() {
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-          <Button />
-        </div>
+      <div className="main-content">
+        <ListView items={contacts} />
+        <Button />
       </div>
     );
   }
@@ -59,4 +24,4 @@ class Game extends React.Component {
 
 // ========================================
 
-ReactDOM.render(<Game />, document.getElementById('root'));
+ReactDOM.render(<MainApp />, document.getElementById('root'));
