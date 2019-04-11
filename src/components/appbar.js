@@ -20,6 +20,8 @@ export class AppBar extends React.Component {
     this.state = {
       properties: props
     };
+
+    this.fireAppbarDisplayEvent = this.fireAppbarDisplayEvent.bind(this);
   }
   fireAppbarDisplayEvent() {
     PubSub.publish('APPBAR_DISPLAY_EVENT', null);
@@ -41,7 +43,7 @@ export class AppBar extends React.Component {
         <Heading level="3" margin="none">
           Dota2 Ticker
         </Heading>
-        <Button onClick={this.fireAppbarDisplayEvent.bind(this)}>
+        <Button onClick={this.fireAppbarDisplayEvent}>
           <Stack anchor="top-right">
             <Notification size="large" />
             <Box

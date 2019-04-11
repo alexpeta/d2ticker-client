@@ -35,6 +35,8 @@ class MainApp extends React.Component {
       showSidebar: false,
       matches: [{ id: 1, team1: 'Alliance', team2: 'Navi' }]
     };
+
+    this.onAppbarDisplayEvent = this.onAppbarDisplayEvent.bind(this);
   }
 
   onAppbarDisplayEvent(msg, data) {
@@ -46,7 +48,7 @@ class MainApp extends React.Component {
   componentDidMount() {
     this.state.appbarNotificationToken = PubSub.subscribe(
       'APPBAR_DISPLAY_EVENT',
-      this.onAppbarDisplayEvent.bind(this)
+      this.onAppbarDisplayEvent
     );
   }
 
