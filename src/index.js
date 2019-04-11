@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PubSub from 'pubsub-js';
 import {
   Box,
   Button,
@@ -30,10 +31,29 @@ class MainApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      appbarNotificationToken: null,
       showSidebar: false,
       matches: [{ id: 1, team1: 'Alliance', team2: 'Navi' }]
     };
   }
+
+  onAppbarDisplayEvent(msg, data) {
+    this.setState(prevState => ({
+      showSidebar: !prevState.showSidebar
+    }));
+  }
+
+  componentDidMount() {
+    this.state.appbarNotificationToken = PubSub.subscribe(
+      'APPBAR_DISPLAY_EVENT',
+      this.onAppbarDisplayEvent.bind(this)
+    );
+  }
+
+  componentWillUnmount() {
+    PubSub.unsubscribe(this.state.appbarNotificationToken);
+  }
+
   render() {
     const { showSidebar } = this.state;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PubSub from 'pubsub-js';
 import {
   Box,
   Button,
@@ -20,6 +21,9 @@ export class AppBar extends React.Component {
       properties: props
     };
   }
+  fireAppbarDisplayEvent() {
+    PubSub.publish('APPBAR_DISPLAY_EVENT', null);
+  }
 
   render() {
     return (
@@ -37,13 +41,7 @@ export class AppBar extends React.Component {
         <Heading level="3" margin="none">
           Dota2 Ticker
         </Heading>
-        <Button
-          onClick={() =>
-            this.setState(prevState => ({
-              showSidebar: !prevState.showSidebar
-            }))
-          }
-        >
+        <Button onClick={this.fireAppbarDisplayEvent.bind(this)}>
           <Stack anchor="top-right">
             <Notification size="large" />
             <Box
