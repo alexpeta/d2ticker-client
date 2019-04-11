@@ -42,30 +42,7 @@ class MainApp extends React.Component {
         <ResponsiveContext.Consumer>
           {size => (
             <Box fill>
-              <AppBar>
-                <Heading level="3" margin="none">
-                  Dota2 Ticker
-                </Heading>
-                <Button
-                  onClick={() =>
-                    this.setState(prevState => ({
-                      showSidebar: !prevState.showSidebar
-                    }))
-                  }
-                >
-                  <Stack anchor="top-right">
-                    <Notification size="large" />
-                    <Box
-                      anchor="bottom-left"
-                      background="red"
-                      pad={{ horizontal: 'xsmall' }}
-                      round
-                    >
-                      <Text color="white">8</Text>
-                    </Box>
-                  </Stack>
-                </Button>
-              </AppBar>
+              <AppBar />
               <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
                 <Box flex align="center" justify="center">
                   <ListView matches={this.state.matches} />
