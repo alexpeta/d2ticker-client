@@ -33,7 +33,10 @@ class MainApp extends React.Component {
     this.state = {
       appbarNotificationToken: null,
       showSidebar: false,
-      matches: [{ id: 1, team1: 'Alliance', team2: 'Navi' }]
+      matches: [
+        { id: 1, team1: 'Alliance', team2: 'Navi' },
+        { id: 2, team1: 'OG', team2: 'EG' }
+      ]
     };
 
     this.onAppbarDisplayEvent = this.onAppbarDisplayEvent.bind(this);

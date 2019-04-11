@@ -16,7 +16,7 @@ export class ListView extends React.Component {
 
   render() {
     return (
-      <Grid fill="horizontal" rows={this.state.rows} gap="small">
+      <Grid fill="horizontal" rows={this.state.rows}>
         {this.state.matches.map(match => (
           <ListItem match={match} />
         ))}

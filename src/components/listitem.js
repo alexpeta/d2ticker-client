@@ -16,12 +16,11 @@ export class ListItem extends React.Component {
 
   render() {
     return (
-      <Box background="#18171c">
+      <Box background="#18171c" pad="small" margin="small">
         <Grid
           fill="horizontal"
           columns={this.state.columns}
           align="center"
-          gap="small"
           justifyContent="center"
           justify="center"
         >
