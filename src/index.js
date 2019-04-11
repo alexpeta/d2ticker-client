@@ -13,6 +13,7 @@ import {
 } from 'grommet';
 import { FormClose, Notification } from 'grommet-icons';
 import { ListView } from './components/listview';
+import { AppBar } from './components/appbar';
 
 const theme = {
   global: {
@@ -25,26 +26,12 @@ const theme = {
   }
 };
 
-const AppBar = props => (
-  <Box
-    tag="header"
-    direction="row"
-    align="center"
-    justify="between"
-    background="brand"
-    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-    elevation="medium"
-    style={{ zIndex: '1' }}
-    {...props}
-  />
-);
-
 class MainApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showSidebar: false,
-      matches: [{ id: 1, player1: 'Alliance', player2: 'Navi' }]
+      matches: [{ id: 1, team1: 'Alliance', team2: 'Navi' }]
     };
   }
   render() {

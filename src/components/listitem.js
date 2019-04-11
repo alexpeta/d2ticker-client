@@ -16,11 +16,18 @@ export class ListItem extends React.Component {
 
   render() {
     return (
-      <Box background="brand">
-        <Grid fill="vertical" columns={this.state.columns} gap="small">
-          <Text size="large">{this.state.match.player1}</Text>
-          <Text>vs</Text>
-          <Text size="large">{this.state.match.player2}</Text>
+      <Box background="#18171c">
+        <Grid
+          fill="horizontal"
+          columns={this.state.columns}
+          align="center"
+          gap="small"
+          justifyContent="center"
+          justify="center"
+        >
+          <Text size="xxlarge">{this.state.match.team1}</Text>
+          <Text size="large">vs</Text>
+          <Text size="xxlarge">{this.state.match.team2}</Text>
         </Grid>
       </Box>
     );
