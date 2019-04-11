@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ListItem } from './listitem';
-import './listview.css';
+import { Grid, Text } from 'grommet';
 
 export class ListView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      matches: props.matches,
+      rows: {
+        size: 'auto'
+      }
+    };
+  }
+
   render() {
     return (
-      <div className="list-container">
-        {this.props.items.map(c => (
-          <ListItem key={c.value} display={c.display} />
+      <Grid fill="horizontal" rows={this.state.rows} gap="small">
+        {this.state.matches.map(match => (
+          <ListItem match={match} />
         ))}
-      </div>
+      </Grid>
     );
   }
 }

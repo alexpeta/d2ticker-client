@@ -7,17 +7,12 @@ import {
   Heading,
   Grommet,
   Layer,
-  ResponsiveContext
+  ResponsiveContext,
+  Stack,
+  Text
 } from 'grommet';
 import { FormClose, Notification } from 'grommet-icons';
 import { ListView } from './components/listview';
-
-const contacts = [
-  { value: 1, display: 'Leanne Graham' },
-  { value: 2, display: 'Ervin Howell' },
-  { value: 3, display: 'Clementine Bauch' },
-  { value: 4, display: 'Patricia Lebsack' }
-];
 
 const theme = {
   global: {
@@ -47,7 +42,10 @@ const AppBar = props => (
 class MainApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showSidebar: false };
+    this.state = {
+      showSidebar: false,
+      matches: [{ id: 1, player1: 'Alliance', player2: 'Navi' }]
+    };
   }
   render() {
     const { showSidebar } = this.state;
@@ -62,17 +60,28 @@ class MainApp extends React.Component {
                   Dota2 Ticker
                 </Heading>
                 <Button
-                  icon={<Notification />}
                   onClick={() =>
                     this.setState(prevState => ({
                       showSidebar: !prevState.showSidebar
                     }))
                   }
-                />
+                >
+                  <Stack anchor="top-right">
+                    <Notification size="large" />
+                    <Box
+                      anchor="bottom-left"
+                      background="red"
+                      pad={{ horizontal: 'xsmall' }}
+                      round
+                    >
+                      <Text color="white">8</Text>
+                    </Box>
+                  </Stack>
+                </Button>
               </AppBar>
               <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
                 <Box flex align="center" justify="center">
-                  app body
+                  <ListView matches={this.state.matches} />
                 </Box>
                 {!showSidebar || size !== 'small' ? (
                   <Collapsible direction="horizontal" open={showSidebar}>
